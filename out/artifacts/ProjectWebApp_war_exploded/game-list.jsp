@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%-- This library is being used to create the foreach statements in my tables--%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <head>
@@ -32,7 +33,8 @@
 
     <center>
         <h4>
-            <a href="all">Show All Games</a>
+            <!-- the href activates the "all" action in the servlet -->
+            <a href="all">Show list of Games</a>
         </h4>
     </center>
 
@@ -43,6 +45,7 @@
                 <th>Game Name</th>
                 <th>Genre</th>
             </tr>
+            <%-- The forEach statement will create a row for each object in the collection --%>
             <c:forEach var="game" items="${listGame}">
                 <tr>
                     <td><c:out value="${game.game_id}" /> </td>

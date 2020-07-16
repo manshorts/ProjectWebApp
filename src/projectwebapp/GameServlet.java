@@ -13,6 +13,8 @@ import java.util.List;
 @WebServlet("/")
 public class GameServlet extends HttpServlet {
 
+    public static MyTest test = new MyTest();
+
     private GameDAO gameDAO;
 
     public void init() {
@@ -65,6 +67,8 @@ public class GameServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("game-list.jsp");
         // forwards request objects to the web client via the dispatcher
         dispatcher.forward(request,response);
+        // calls Junit test to ensure that objects passed correctly.
+        test.collectionEquals(listGame, gameDAO.getAllGames());
     }
 
     private void listByGenre(HttpServletRequest request, HttpServletResponse response, String genre) throws SQLException, IOException,
@@ -77,6 +81,8 @@ public class GameServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("game-genre.jsp");
         // forwards request objects to the web client via the dispatcher
         dispatcher.forward(request,response);
+        // calls Junit test to ensure that objects passed correctly.
+        test.collectionEquals(listByGenre, gameDAO.getAllGames());
     }
 
     private void listByLetter(HttpServletRequest request, HttpServletResponse response, String letter) throws SQLException, IOException,
@@ -89,5 +95,7 @@ public class GameServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("game-letter.jsp");
         // forwards request objects to the web client via the dispatcher
         dispatcher.forward(request,response);
+        // calls Junit test to ensure that objects passed correctly.
+        test.collectionEquals(listByLetter, gameDAO.getAllGames());
     }
 }

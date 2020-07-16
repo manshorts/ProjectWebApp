@@ -31,5 +31,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.36" level="application_server_libraries" />
     <orderEntry type="library" name="hibernate" level="project" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
+    <orderEntry type="library" name="junit-4.13" level="project" />
   </component>
 </module>

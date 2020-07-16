@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%-- This library is being used to create the foreach statements in my tables--%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <head>
@@ -33,8 +34,10 @@
 </center>
 
 <center>
+    <!-- dropdown menu where values will be passed to the servlet -->
     <form name="dropdownGenre" action="genre">
         <label><h4>Pick a Genre to view all of the games in that genre:</h4></label><br>
+        <!-- the servlet will look for the selected value when the submit button is pressed. -->
         <select name="genreParam" id="genreParam">
             <option value="action">Action</option>
             <option value="adventure">Adventure</option>
@@ -58,6 +61,7 @@
             <th>Game Name</th>
             <th>Genre</th>
         </tr>
+        <%-- The forEach statement will create a row for each object in the collection --%>
         <c:forEach var="game" items="${listByGenre}">
             <tr>
                 <td><c:out value="${game.game_id}" /> </td>
