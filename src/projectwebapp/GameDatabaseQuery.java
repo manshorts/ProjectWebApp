@@ -3,10 +3,12 @@ package projectwebapp;
 import javax.persistence.*;
 
 @Entity
+// name of the table in the database
 @Table (name = "games")
 
 public class GameDatabaseQuery {
 
+    // Names assigned are those that are in the table for the database
     @Id @Column (name = "GAME_ID")
     private String game_id;
     @Column (name = "GAME_NAME")
